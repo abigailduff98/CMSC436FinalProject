@@ -1,38 +1,38 @@
 package project.readaloud
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 
 class ButtonActivity : Activity() {
 
     companion object {
-        private var mCount: Int = 0
+        // For stuff if needed
     }
-
-    private lateinit var mButton: Button
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main)
-
-        // Get a reference to the Press Me Button
-        mButton = findViewById(R.id.readButton)
-
-        // Reset Button Text if restarting
-        savedInstanceState?.run {
-            mButton.text = getString(R.string.got_pressed_string, mCount)
-        }
     }
 
-    // Set an OnClickListener on this Button
+    // Set an OnClickListener on readButton
     // Called each time the user clicks the Button
-    fun processClick(v: View) {
+    fun clickRead(v: View) {
 
-        // Maintain a count of user presses
-        // Display count as text on the Button
+        val goToListIntent = Intent(
+                this@ButtonActivity,
+                ListViewActivity::class.java
+        )
+        startActivity(goToListIntent)
 
-        (v as Button).text = getString(R.string.got_pressed_string, ++mCount)
+    }
+
+    // Set an OnClickListener on createButton
+    // Called each time the user clicks the Button
+    fun clickCreate(v: View) {
+
+        // TODO: implement story creation
+
     }
 }
