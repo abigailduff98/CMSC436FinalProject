@@ -1,0 +1,7 @@
+#Thu Nov 14 16:55:38 EST 2019
+base.0=C\:\\Users\\vanil\\cmsc436-aduff12\\sandbox\\ReadAloud\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex
+path.1=classes.dex
+renamed.1=classes2.dex
+path.0=classes.dex
+renamed.0=classes.dex
+base.1=C\:\\Users\\vanil\\cmsc436-aduff12\\sandbox\\ReadAloud\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\out\\classes.dex

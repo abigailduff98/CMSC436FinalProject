@@ -1,0 +1,81 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\vanil\\cmsc436-aduff12\\sandbox\\ReadAloud\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\vanil\\cmsc436-aduff12\\sandbox\\ReadAloud\\app\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "8,2,6,3,5,4",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "347,57,300,108,236,173",
+                        "endLines": "29,2,6,3,5,4",
+                        "endColumns": "19,49,43,63,62,61",
+                        "endOffsets": "956,102,339,167,294,230"
+                    },
+                    "to": {
+                        "startLines": "2,35,36,37,38,39",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "100,1209,1259,1303,1367,1430",
+                        "endLines": "23,35,36,37,38,39",
+                        "endColumns": "19,49,43,63,62,61",
+                        "endOffsets": "688,1254,1298,1362,1425,1487"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\vanil\\cmsc436-aduff12\\sandbox\\ReadAloud\\app\\src\\main\\res\\values\\colors.xml",
+                    "from": {
+                        "startLines": "4,9,7,2,3,10,5,6,8",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "195,421,335,104,147,492,237,285,380",
+                        "endColumns": "40,69,43,41,46,47,46,48,39",
+                        "endOffsets": "231,486,374,141,189,535,279,329,415"
+                    },
+                    "to": {
+                        "startLines": "24,25,26,27,28,29,30,31,32",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "693,734,802,846,888,935,983,1030,1079",
+                        "endColumns": "40,67,43,41,46,47,46,48,39",
+                        "endOffsets": "729,797,841,883,930,978,1025,1074,1114"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\vanil\\cmsc436-aduff12\\sandbox\\ReadAloud\\app\\src\\main\\res\\values\\styles.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "57",
+                        "endLines": "10",
+                        "endColumns": "12",
+                        "endOffsets": "643"
+                    },
+                    "to": {
+                        "startLines": "40",
+                        "startColumns": "4",
+                        "startOffsets": "1492",
+                        "endLines": "48",
+                        "endColumns": "12",
+                        "endOffsets": "2070"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\vanil\\cmsc436-aduff12\\sandbox\\ReadAloud\\app\\src\\main\\res\\values\\dimens.xml",
+                    "from": {
+                        "startLines": "3,5",
+                        "startColumns": "4,4",
+                        "startOffsets": "130,180",
+                        "endColumns": "46,42",
+                        "endOffsets": "172,218"
+                    },
+                    "to": {
+                        "startLines": "33,34",
+                        "startColumns": "4,4",
+                        "startOffsets": "1119,1166",
+                        "endColumns": "46,42",
+                        "endOffsets": "1161,1204"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "C:\\Users\\vanil\\cmsc436-aduff12\\sandbox\\ReadAloud\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\vanil\\cmsc436-aduff12\\sandbox\\ReadAloud\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\vanil\\cmsc436-aduff12\\sandbox\\ReadAloud\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\vanil\\cmsc436-aduff12\\sandbox\\ReadAloud\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\vanil\\cmsc436-aduff12\\sandbox\\ReadAloud\\app\\build\\intermediates\\res\\merged\\debug\\layout_main.xml.flat",
+        "source": "C:\\Users\\vanil\\cmsc436-aduff12\\sandbox\\ReadAloud\\app\\src\\main\\res\\layout\\main.xml"
+    },
+    {
+        "merged": "C:\\Users\\vanil\\cmsc436-aduff12\\sandbox\\ReadAloud\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\vanil\\cmsc436-aduff12\\sandbox\\ReadAloud\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\vanil\\cmsc436-aduff12\\sandbox\\ReadAloud\\app\\build\\intermediates\\res\\merged\\debug\\layout_list_item.xml.flat",
+        "source": "C:\\Users\\vanil\\cmsc436-aduff12\\sandbox\\ReadAloud\\app\\src\\main\\res\\layout\\list_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\vanil\\cmsc436-aduff12\\sandbox\\ReadAloud\\app\\build\\intermediates\\res\\merged\\debug\\drawable_mrwhite.png.flat",
+        "source": "C:\\Users\\vanil\\cmsc436-aduff12\\sandbox\\ReadAloud\\app\\src\\main\\res\\drawable\\mrwhite.png"
+    },
+    {
+        "merged": "C:\\Users\\vanil\\cmsc436-aduff12\\sandbox\\ReadAloud\\app\\build\\intermediates\\res\\merged\\debug\\drawable_list_background.xml.flat",
+        "source": "C:\\Users\\vanil\\cmsc436-aduff12\\sandbox\\ReadAloud\\app\\src\\main\\res\\drawable\\list_background.xml"
+    }
+]
