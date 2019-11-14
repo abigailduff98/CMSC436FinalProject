@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <color name="primary">#ffcece</color>
-    <color name="primary_dark">#ffc1c8</color>
+    <color name="primary">#F1C3C3</color>
+    <color name="primary_dark">#E9B1B7</color>
     <color name="accent">#E64A19</color>
     <color name="primary_text">#000000</color>
     <color name="secondary_text">#727272</color>
     <color name="edit_text">#202020</color>
-    <color name="white">#FFFFFF</color>
+    <color name="white">#fcf9ea</color>
     <color name="divider" tools:keep="@color/divider">#8ed6ff</color>
     <color name="primary_light">#ffe3b0</color>
 </resources>

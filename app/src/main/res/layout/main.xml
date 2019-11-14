@@ -13,7 +13,8 @@
         android:contentDescription="@string/bear_desc"
         android:src="@drawable/mrwhite"
 
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"/>
 
     <Button
         android:id="@+id/createButton"
@@ -25,8 +26,11 @@
         android:text="@string/create_button_string"
         android:textAppearance="@android:style/TextAppearance.Material.Display1"
         android:textColor="@color/white"
+        android:background="@color/divider"
 
-        android:layout_centerVertical="true"/>
+        android:layout_below="@id/imageView1"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="42dp"/>
 
     <Button
         android:id="@+id/readButton"
@@ -37,9 +41,10 @@
         android:text="@string/read_button_string"
         android:textAppearance="@android:style/TextAppearance.Material.Display1"
         android:textColor="@color/white"
+        android:background="@color/divider"
         android:onClick="clickRead"
 
         android:layout_below="@id/createButton"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="32dp"/>
 
 </RelativeLayout>
