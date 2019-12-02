@@ -18,7 +18,7 @@ class PaintCanvasView(context: Context, attributeSet: AttributeSet) : View(conte
         paint = Paint()
         path = Path()
         paint.isAntiAlias = true
-        paint.color = Color.YELLOW
+        paint.color = Color.BLUE
         paint.strokeJoin = Paint.Join.ROUND
         paint.style = Paint.Style.STROKE
         paint.strokeWidth = 5f

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="wrap_content">
 
     <!-- Title -->
 
@@ -11,21 +11,29 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Page text"
-        android:textAppearance="?android:attr/textAppearanceLarge" >
-    </TextView>
+        android:textAppearance="?android:attr/textAppearanceLarge"></TextView>
 
     <EditText
         android:id="@+id/title"
         android:layout_width="match_parent"
-        android:layout_height="600px"
-        android:layout_alignParentLeft="true"
+        android:lines="4"
+        android:gravity="top|left"
+        android:maxLength="200"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/TitleLabel"
+        android:layout_alignParentLeft="true"
         android:ems="10"
         android:hint="Enter text for this page"
-        android:inputType="textShortMessage" >
+        android:inputType="textMultiLine">
 
         <requestFocus />
     </EditText>
+    <view
+        android:id="@+id/view2"
+        class="project.readaloud.PaintCanvasView"
+        android:layout_width="match_parent"
+        android:layout_height="326dp"
+        android:layout_below="@+id/title"
+    />
 
-    <!-- Status -->
 </RelativeLayout>
