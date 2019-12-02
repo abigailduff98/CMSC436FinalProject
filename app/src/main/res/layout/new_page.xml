@@ -28,12 +28,33 @@
 
         <requestFocus />
     </EditText>
+
     <view
         android:id="@+id/view2"
         class="project.readaloud.PaintCanvasView"
         android:layout_width="match_parent"
-        android:layout_height="326dp"
+        android:layout_height="284dp"
         android:layout_below="@+id/title"
+        android:layout_marginTop="-2dp"
     />
+
+    <Button
+        android:id="@+id/prevPageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view2"
+        android:layout_alignLeft="@+id/view2"
+
+        android:background="#00BCD4"
+        android:text="Prev" />
+    <Button
+        android:id="@+id/nextPageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view2"
+        android:layout_alignRight="@+id/view2"
+        android:background="#00BCD4"
+
+        android:text="Next" />
 
 </RelativeLayout>
