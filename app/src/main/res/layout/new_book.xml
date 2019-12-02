@@ -38,6 +38,7 @@
         android:layout_height="wrap_content"
         android:width="200dp"
         android:background="@drawable/rounded_edge"
+        android:textColor="@color/white"
         android:onClick="createBook"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
