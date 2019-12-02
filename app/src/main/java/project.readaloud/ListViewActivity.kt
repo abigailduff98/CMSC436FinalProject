@@ -1,8 +1,10 @@
 package project.readaloud
 
 import android.app.ListActivity
+import android.content.Intent
 import android.os.Bundle
 import android.widget.AdapterView.OnItemClickListener
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 
@@ -24,12 +26,20 @@ class ListViewActivity : ListActivity() {
 
         // Set an setOnItemClickListener on the ListView
         listView.onItemClickListener = OnItemClickListener { parent, view, position, id ->
+            val goToReaderIntent = Intent(
+                    this@ListViewActivity,
+                    ReaderActivity::class.java
+            )
+            startActivity(goToReaderIntent)
+
+            /*
             val textView = view.findViewById<TextView>(R.id.text)
             // Display a Toast message indicting the selected item
             Toast.makeText(
                 this@ListViewActivity,
                 textView.text, Toast.LENGTH_SHORT
             ).show()
+             */
         }
     }
 }

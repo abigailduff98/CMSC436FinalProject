@@ -12,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:textColor="#756b44"
 
         android:text="@string/page_text"
         android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -23,6 +24,7 @@
         android:gravity="top|start"
         android:maxLength="200"
         android:background="#FFFFFF"
+        android:textColor="#756b44"
         android:layout_height="wrap_content"
         android:layout_below="@+id/TitleLabel"
         android:layout_alignParentStart="true"
@@ -52,6 +54,7 @@
         android:onClick="prevPage"
         android:layout_alignStart="@+id/canvasView"
         android:background="@drawable/rounded_edge"
+        android:textColor="@color/white"
         android:text="@string/prev"
     />
     <Button
@@ -64,7 +67,7 @@
         android:onClick="nextPage"
         android:layout_alignEnd="@+id/canvasView"
         android:background="@drawable/rounded_edge"
-
+        android:textColor="@color/white"
         android:text="@string/next"
     />
 

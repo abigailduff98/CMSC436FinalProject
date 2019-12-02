@@ -1,34 +1,42 @@
 {
   "project_info": {
-    "project_number": "245215476409",
-    "firebase_url": "https://read-with-me-cacaa.firebaseio.com",
-    "project_id": "read-with-me-cacaa",
-    "storage_bucket": "read-with-me-cacaa.appspot.com"
+    "project_number": "507982816153",
+    "firebase_url": "https://cmsc436finalproject-6fb9b.firebaseio.com",
+    "project_id": "cmsc436finalproject-6fb9b",
+    "storage_bucket": "cmsc436finalproject-6fb9b.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:245215476409:android:18ef035aa9d9d9146d3968",
+        "mobilesdk_app_id": "1:507982816153:android:b3f589f6d8f8b279ff6908",
         "android_client_info": {
           "package_name": "course.examples.ui.button"
         }
       },
       "oauth_client": [
         {
-          "client_id": "245215476409-ql3m5c019r16imm1g497boht6ceq0ptt.apps.googleusercontent.com",
+          "client_id": "507982816153-pc8ugp363li58fqt9mlntd43vk09u38r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "course.examples.ui.button",
+            "certificate_hash": "6daf2b9fcd9d354a258ac6d7bc3db19fb8523a01"
+          }
+        },
+        {
+          "client_id": "507982816153-ges9jctd2bc6mgsi7u178rao8kce6mu2.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBeH-dRx7OGYb3zmyrhGHKC52t2KWcP_NI"
+          "current_key": "AIzaSyAfd5W7o0AKFqXQZTL0nG3-kHBZwWfuz2w"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "245215476409-ql3m5c019r16imm1g497boht6ceq0ptt.apps.googleusercontent.com",
+              "client_id": "507982816153-ges9jctd2bc6mgsi7u178rao8kce6mu2.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
