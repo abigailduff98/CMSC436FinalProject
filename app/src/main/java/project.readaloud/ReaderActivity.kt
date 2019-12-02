@@ -35,6 +35,15 @@ class ReaderActivity : Activity(), OnInitListener {
             speakWords(words)
         }
 
+        //get a reference to the button element listed in the XML layout
+        val stopButton = findViewById(R.id.stopButton) as Button
+        //listen for clicks
+        stopButton.setOnClickListener {
+            if (myTTS != null) {
+                myTTS!!.stop()
+            }
+        }
+
         //check for TTS data
         val checkTTSIntent = Intent()
         checkTTSIntent.action = TextToSpeech.Engine.ACTION_CHECK_TTS_DATA
