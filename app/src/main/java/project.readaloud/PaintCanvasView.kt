@@ -5,11 +5,12 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Path
+import android.os.Bundle
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 
-class CreatePage(context: Context, attributeSet: AttributeSet) : View(context, attributeSet) {
+class PaintCanvasView(context: Context, attributeSet: AttributeSet) : View(context, attributeSet) {
     private var paint: Paint
     private var path: Path
 

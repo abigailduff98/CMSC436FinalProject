@@ -31,8 +31,11 @@ class ButtonActivity : Activity() {
     // Set an OnClickListener on createButton
     // Called each time the user clicks the Button
     fun clickCreate(v: View) {
-
-        // TODO: implement story creation
+        val intent = Intent(
+                this@ButtonActivity,
+                NewPageActivity::class.java
+        )
+        startActivity(intent)
 
     }
 }
