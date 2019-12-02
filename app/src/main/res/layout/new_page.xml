@@ -43,6 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/view2"
+        android:onClick="prevPage"
         android:layout_alignLeft="@+id/view2"
 
         android:background="#00BCD4"
@@ -52,6 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/view2"
+        android:onClick="nextPage"
         android:layout_alignRight="@+id/view2"
         android:background="#00BCD4"
 
