@@ -5,6 +5,12 @@
     <string name="read_button_string">Read old story</string>
     <string name="got_pressed_string">Got Pressed:%1d</string>
     <string name="bear_desc">White</string>
+    <string name="new_book">New Book</string>
+    <string name="enter_your_book_s_title">Enter your book\'s title</string>
+    <string name="create_book">Create Book</string>
+    <string name="prev">Prev</string>
+    <string name="next">Next</string>
+    <string name="enter_text_for_this_page">Enter text for this page</string>
 
     <string-array name="colors">
         <item>red</item>

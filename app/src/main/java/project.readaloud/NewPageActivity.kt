@@ -13,11 +13,11 @@ class NewPageActivity : Activity() {
 
     fun prevPage(v: View) {
 
-        val int = Intent(
+        val intent = Intent(
                 this@NewPageActivity,
                 NewPageActivity::class.java
         )
-        startActivity(int)
+        startActivity(intent)
 
     }
 

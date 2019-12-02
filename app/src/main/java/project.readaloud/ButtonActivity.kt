@@ -33,7 +33,7 @@ class ButtonActivity : Activity() {
     fun clickCreate(v: View) {
         val intent = Intent(
                 this@ButtonActivity,
-                NewPageActivity::class.java
+                NewBookActivity::class.java
         )
         startActivity(intent)
 

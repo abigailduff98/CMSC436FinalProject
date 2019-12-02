@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_light"
+    >
+
+    <TextView
+        android:id="@+id/enterBookTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="casual"
+        android:paddingTop="200dp"
+        android:text="@string/new_book"
+        android:textAlignment="center"
+        android:textSize="36sp" />
+
+    <EditText
+        android:id="@+id/bookTitleEditText"
+        android:layout_width="match_parent"
+        android:gravity="top|start"
+        android:maxLength="200"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/enter_your_book_s_title"
+        android:inputType="textShortMessage">
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/submitBookTitleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:width="200dp"
+        android:background="@color/divider"
+        android:onClick="createBook"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="@string/create_book" />
+</LinearLayout>

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:background="@color/primary_light"
+    >
 
     <!-- Title -->
 
@@ -10,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+
         android:text="Page text"
         android:textAppearance="?android:attr/textAppearanceLarge"></TextView>
 
@@ -17,46 +20,55 @@
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:lines="4"
-        android:gravity="top|left"
+        android:gravity="top|start"
         android:maxLength="200"
+        android:background="#FFFFFF"
         android:layout_height="wrap_content"
         android:layout_below="@+id/TitleLabel"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:ems="10"
-        android:hint="Enter text for this page"
+        android:hint="@string/enter_text_for_this_page"
         android:inputType="textMultiLine">
 
         <requestFocus />
     </EditText>
 
     <view
-        android:id="@+id/view2"
+        android:id="@+id/canvasView"
         class="project.readaloud.PaintCanvasView"
         android:layout_width="match_parent"
         android:layout_height="284dp"
-        android:layout_below="@+id/title"
+        android:layout_below="@+id/divider"
         android:layout_marginTop="-2dp"
-    />
+        android:background="#FFFFFF" />
 
     <Button
         android:id="@+id/prevPageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/view2"
+        android:layout_below="@+id/canvasView"
         android:onClick="prevPage"
-        android:layout_alignLeft="@+id/view2"
-
-        android:background="#00BCD4"
-        android:text="Prev" />
+        android:layout_alignStart="@+id/canvasView"
+        android:background="@color/divider"
+        android:text="@string/prev"
+    />
     <Button
         android:id="@+id/nextPageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/view2"
+        android:layout_below="@+id/canvasView"
         android:onClick="nextPage"
-        android:layout_alignRight="@+id/view2"
-        android:background="#00BCD4"
+        android:layout_alignEnd="@+id/canvasView"
+        android:background="@color/divider"
 
-        android:text="Next" />
+        android:text="@string/next"
+    />
+
+    <Space
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_below="@+id/title"
+    />
 
 </RelativeLayout>
