@@ -50,7 +50,7 @@
         android:layout_below="@+id/canvasView"
         android:onClick="prevPage"
         android:layout_alignStart="@+id/canvasView"
-        android:background="@color/divider"
+        android:background="@drawable/rounded_edge"
         android:text="@string/prev"
     />
     <Button
@@ -61,7 +61,7 @@
         android:layout_marginTop="10dp"
         android:onClick="nextPage"
         android:layout_alignEnd="@+id/canvasView"
-        android:background="@color/divider"
+        android:background="@drawable/rounded_edge"
 
         android:text="@string/next"
     />

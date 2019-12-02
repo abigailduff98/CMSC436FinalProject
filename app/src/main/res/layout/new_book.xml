@@ -37,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:width="200dp"
-        android:background="@color/divider"
+        android:background="@drawable/rounded_edge"
         android:onClick="createBook"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
