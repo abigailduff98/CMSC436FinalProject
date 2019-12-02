@@ -13,8 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
 
-        android:text="Page text"
-        android:textAppearance="?android:attr/textAppearanceLarge"></TextView>
+        android:text="@string/page_text"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
         android:id="@+id/title"
@@ -46,6 +46,7 @@
         android:id="@+id/prevPageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:layout_below="@+id/canvasView"
         android:onClick="prevPage"
         android:layout_alignStart="@+id/canvasView"
@@ -57,6 +58,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/canvasView"
+        android:layout_marginTop="10dp"
         android:onClick="nextPage"
         android:layout_alignEnd="@+id/canvasView"
         android:background="@color/divider"

@@ -21,7 +21,11 @@
         android:layout_width="match_parent"
         android:gravity="top|start"
         android:maxLength="200"
+        android:textSize="26sp"
         android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:ems="10"
         android:hint="@string/enter_your_book_s_title"
         android:inputType="textShortMessage">
