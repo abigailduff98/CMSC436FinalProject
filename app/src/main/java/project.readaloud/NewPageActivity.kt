@@ -11,6 +11,12 @@ class NewPageActivity : Activity() {
         setContentView(R.layout.new_page)
     }
 
+    //save previous content and be able to show it
+    //first page shouldn't have prev
+    //create page
+    //save instance state
+    //keep a stack of activities
+    //save button (finish)
     fun prevPage(v: View) {
 
         val intent = Intent(
