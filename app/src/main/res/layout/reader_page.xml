@@ -1,6 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_light"
+    android:padding="@dimen/activity_margin">
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+
+        android:contentDescription="@string/bear_desc"
+        android:src="@drawable/mrwhite"/>
+
+    <Button
+        android:id="@+id/playButton"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+
+        android:text="Play"
+        android:textAppearance="@android:style/TextAppearance.Material.Display1"
+        android:textColor="@color/white"
+        android:background="#8be8a3"
+
+        android:layout_toRightOf="@id/imageView1"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="32dp"/>
+
+    <Button
+        android:id="@+id/stopButton"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+
+        android:text="Stop"
+        android:textAppearance="@android:style/TextAppearance.Material.Display1"
+        android:textColor="@color/white"
+        android:background="#f291b5"
+
+        android:layout_toRightOf="@id/playButton"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="32dp"/>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="598dp"
+
+        android:layout_below="@id/playButton"
+        android:layout_marginTop="-11dp"
+        android:contentDescription="story background"
+        android:src="@drawable/sketchpad" />
+
+    <Button
+        android:id="@+id/prevPageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView2"
+        android:layout_alignLeft="@id/imageView2"
+        android:layout_marginLeft="86dp"
+        android:layout_marginTop="-20dp"
+        android:background="@drawable/rounded_edge"
+        android:text="Prev"
+        android:textAppearance="@android:style/TextAppearance.Material.Display1"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/nextPageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView2"
+        android:layout_marginLeft="33dp"
+        android:layout_marginTop="-20dp"
+        android:layout_toRightOf="@+id/prevPageButton"
+        android:background="@drawable/rounded_edge"
+        android:text="Next"
+        android:textAppearance="@android:style/TextAppearance.Material.Display1"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/storyText"
+        android:layout_width="290dp"
+        android:layout_height="110dp"
+        android:layout_below="@id/playButton"
+        android:layout_marginTop="100dp"
+
+        android:text="Hey there! I'm just testing out how much text we can fit here. We might want to set a character limit per page!"
+        android:layout_alignLeft="@id/imageView3"
+        android:textAppearance="?android:attr/textAppearanceLarge"></TextView>
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="290dp"
+        android:layout_height="290dp"
+
+        android:layout_alignLeft="@id/imageView2"
+
+        android:layout_below="@id/storyText"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="40dp"
+        android:contentDescription="story image"
+        android:src="@drawable/mrwhite" />
+
+</RelativeLayout>
