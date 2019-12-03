@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.view.View
 
 class NewPageActivity : Activity() {
+
+
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.new_page)
@@ -30,7 +32,7 @@ class NewPageActivity : Activity() {
     fun savePage(v: View) {
         val intent = Intent(
                 this@NewPageActivity,
-                NewPageActivity::class.java
+                CreateBookActivity::class.java
         )
         startActivity(intent)
     }
