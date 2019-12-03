@@ -70,6 +70,15 @@ class NewPageActivity : Activity() {
     fun save(view: View) {
     //will go to list view activity
         //story page?
+        val newPage = textBox?.text.toString()
+        if(newPage != "") {
+            if (currentPage >= pages.size) {
+                pages.add(currentPage, newPage)
+            } else {
+                pages[currentPage] = newPage
+            }
+        }
+
         val ref = FirebaseDatabase.getInstance().getReference("books")
         //generate unique key inside the reference
         val bookId = ref.push().key
