@@ -32,8 +32,6 @@ class ReaderActivity : Activity(), OnInitListener {
         //listen for clicks
         speakButton.setOnClickListener {
 
-
-
             //get the text entered
             val enteredText = findViewById<TextView>(R.id.storyText)
             val words = enteredText.text.toString()
@@ -46,6 +44,7 @@ class ReaderActivity : Activity(), OnInitListener {
         stopButton.setOnClickListener {
             if (myTTS != null) {
                 myTTS!!.stop()
+                findViewById<ImageView>(R.id.imageView1).setImageResource(R.drawable.mrwhite)
             }
         }
 
