@@ -5,7 +5,7 @@ class Book {
     var title: String? = null
     var pagesInBook: ArrayList<Page>? = null
 
-    constructor(title:String, pages: ArrayList<Page>){
+    constructor(id: String, title:String, pages: ArrayList<Page>){
         this.title = title
         this.pagesInBook = pages
     }

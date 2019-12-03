@@ -17,16 +17,12 @@ import project.readaloud.Objects.Page
 import project.readaloud.R.layout.new_page
 import java.util.ArrayList
 
-private const val MYTAG = "Book create"
+
 
 class NewPageActivity : Activity() {
     lateinit var titleLabel : TextView
     var text : EditText? = null
     lateinit var newPage : Page
-
-    lateinit var pages : ArrayList<Page>
-    lateinit var myBook : Book
-    private var mAuth: FirebaseAuth? = null
     lateinit var bookTitle : String
     private var pageNumber : Int? = null
 
@@ -42,12 +38,7 @@ class NewPageActivity : Activity() {
         titleLabel.text = bookTitle + ": Page " + pageNumber.toString()
 
         text = findViewById(R.id.storyText)
-        newPage = Page(text.toString())
 
-        pages = ArrayList()
-
-        pages.add(newPage)
-        myBook = Book(bookTitle, pages)
     }
 
     //save previous content and be able to show it
@@ -61,17 +52,8 @@ class NewPageActivity : Activity() {
 
 
     fun save(view: View) {
-        Log.i(MYTAG, "Let's Save The user to Firebase")
-        val myRef = FirebaseDatabase.getInstance().getReference("/books")
-
-
-        //add the user to the Databse
-        val x = myRef.setValue(myBook)
-
-        x.addOnSuccessListener {
-            Log.i(MYTAG, "We saved the Book")
-        }
-
+    //will go to list view activity
+        //story page?
         val intent = Intent(
                 this@NewPageActivity,
                 ListViewActivity::class.java
@@ -83,6 +65,10 @@ class NewPageActivity : Activity() {
     // Called each time the user clicks the Button
     //save to external
     fun nextPage(view: View) {
+
+        newPage = Page(text.toString(), pageNumber!!)
+
+
         val intent = Intent(
                 this@NewPageActivity,
                 NewPageActivity::class.java
