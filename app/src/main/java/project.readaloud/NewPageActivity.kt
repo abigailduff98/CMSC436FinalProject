@@ -83,7 +83,7 @@ class NewPageActivity : Activity() {
         //generate unique key inside the reference
         val bookId = ref.push().key
 
-        val myBook = Book(bookTitle!!, pages)
+        val myBook = Book(bookId.toString(), bookTitle!!, pages)
 
         ref.child(bookId.toString()).setValue(myBook).addOnCompleteListener{
             Toast.makeText(applicationContext,"Book saved successfully", Toast.LENGTH_LONG).show()
