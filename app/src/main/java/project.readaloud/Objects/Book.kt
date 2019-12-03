@@ -3,23 +3,23 @@ package project.readaloud.Objects
 
 class Book {
     var title: String? = null
-    var pagesInBook: ArrayList<Page>? = null
+    var pagesInBook: ArrayList<String>? = null
 
-    constructor(id: String, title:String, pages: ArrayList<Page>){
+    constructor(title: String, pages: ArrayList<String>){
         this.title = title
         this.pagesInBook = pages
     }
-    constructor() : this("","", ArrayList()){
-
-    }
-
-
-    fun addPage(pageToAdd:Page){
-        pagesInBook?.add(pageToAdd)
-    }
-
-    fun deletePage(pageToDel:Page){
-        pagesInBook?.remove(pageToDel)
-    }
+//    constructor() : this("","", ArrayList()){
+//
+//    }
+//
+//
+//    fun addPage(pageToAdd:Page){
+//        pagesInBook?.add(pageToAdd)
+//    }
+//
+//    fun deletePage(pageToDel:Page){
+//        pagesInBook?.remove(pageToDel)
+//    }
 
 }

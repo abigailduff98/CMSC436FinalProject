@@ -3,11 +3,13 @@ package project.readaloud
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
+import com.google.firebase.database.FirebaseDatabase
+import project.readaloud.Objects.Book
 import project.readaloud.R.layout.new_page
 import kotlin.collections.ArrayList
 
@@ -16,8 +18,7 @@ class NewPageActivity : Activity() {
     lateinit var pageLabel : TextView
     lateinit var titleLabel : TextView
     var textBox : EditText? = null
-    lateinit var bookId : String
-    lateinit var bookTitle : String
+    var bookTitle : String? = null
 
     private var currentPage : Int = 0
     lateinit var pages : ArrayList<String>
@@ -32,7 +33,6 @@ class NewPageActivity : Activity() {
         pageLabel  = findViewById(R.id.pageLabel)
         titleLabel = findViewById(R.id.titleLabel)
 
-        bookId = intent.getStringExtra("BOOK_ID")
         bookTitle = intent.getStringExtra("BOOK_TITLE")
 
         titleLabel.text = bookTitle
@@ -70,6 +70,15 @@ class NewPageActivity : Activity() {
     fun save(view: View) {
     //will go to list view activity
         //story page?
+        val ref = FirebaseDatabase.getInstance().getReference("books")
+        //generate unique key inside the reference
+        val bookId = ref.push().key
+
+        val myBook = Book(bookTitle!!, pages)
+
+        ref.child(bookId.toString()).setValue(myBook).addOnCompleteListener{
+            Toast.makeText(applicationContext,"Book saved successfully", Toast.LENGTH_LONG).show()
+        }
         val intent = Intent(
                 this@NewPageActivity,
                 ListViewActivity::class.java

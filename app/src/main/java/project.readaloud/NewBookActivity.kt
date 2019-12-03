@@ -37,20 +37,11 @@ class NewBookActivity : Activity(){
             return
         }
 
-        val ref = FirebaseDatabase.getInstance().getReference("books")
-        //generate unique key inside the reference
-        val bookId = ref.push().key
-        val myBook = Book(bookId.toString(), title, ArrayList())
-
-        ref.child(bookId.toString()).setValue(myBook).addOnCompleteListener{
-            Toast.makeText(applicationContext,"Book saved successfully", Toast.LENGTH_LONG).show()
-        }
 
         val intent = Intent(
                 this@NewBookActivity,
                 NewPageActivity::class.java
         )
-        intent.putExtra("BOOK_ID", bookId.toString())
         intent.putExtra("BOOK_TITLE", title)
 
         startActivity(intent)
