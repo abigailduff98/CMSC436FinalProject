@@ -35,6 +35,8 @@ class ButtonActivity : Activity() {
                 this@ButtonActivity,
                 NewBookActivity::class.java
         )
+        intent.flags = Intent.FLAG_ACTIVITY_NO_HISTORY // Adds the FLAG_ACTIVITY_NO_HISTORY flag
+
         startActivity(intent)
 
     }
