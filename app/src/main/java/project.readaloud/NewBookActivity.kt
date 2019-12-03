@@ -51,6 +51,8 @@ class NewBookActivity : Activity(){
                 NewPageActivity::class.java
         )
         intent.putExtra("BOOK_ID", bookId.toString())
+        intent.putExtra("BOOK_TITLE", title)
+
         startActivity(intent)
     }
 }

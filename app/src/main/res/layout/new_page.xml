@@ -8,7 +8,6 @@
 
     <!-- Title -->
 
-
     <TextView
         android:id="@+id/titleLabel"
         android:layout_width="match_parent"
@@ -17,6 +16,19 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
 
+        android:textSize="35sp"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#756b44" />
+
+    <TextView
+        android:id="@+id/pageLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_below="@+id/titleLabel"
         android:textSize="30sp"
         android:gravity="center"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -26,7 +38,7 @@
         android:id="@+id/textField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/titleLabel"
+        android:layout_below="@+id/pageLabel"
         android:layout_alignParentStart="true"
         android:background="#FFFFFF"
         android:layout_marginTop="10dp"

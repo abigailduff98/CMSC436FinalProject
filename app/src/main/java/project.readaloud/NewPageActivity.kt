@@ -6,22 +6,19 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 
-import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.ImageView
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
-import project.readaloud.Objects.Book
-import project.readaloud.Objects.Page
 import project.readaloud.R.layout.new_page
 import kotlin.collections.ArrayList
 
 
 class NewPageActivity : Activity() {
+    lateinit var pageLabel : TextView
     lateinit var titleLabel : TextView
     var textBox : EditText? = null
     lateinit var bookId : String
+    lateinit var bookTitle : String
+
     private var currentPage : Int = 0
     lateinit var pages : ArrayList<String>
     var prevButton : View? = null
@@ -32,11 +29,14 @@ class NewPageActivity : Activity() {
         setContentView(new_page)
 
         pages = ArrayList()
-        titleLabel  = findViewById(R.id.titleLabel)
+        pageLabel  = findViewById(R.id.pageLabel)
+        titleLabel = findViewById(R.id.titleLabel)
 
         bookId = intent.getStringExtra("BOOK_ID")
-        Log.e("ldsa", titleLabel.toString())
-        resetTitleLabel()
+        bookTitle = intent.getStringExtra("BOOK_TITLE")
+
+        titleLabel.text = bookTitle
+        resetPageLabel()
 
         textBox = findViewById(R.id.textField)
 
@@ -92,7 +92,7 @@ class NewPageActivity : Activity() {
         }
 
         currentPage += 1
-        resetTitleLabel()
+        resetPageLabel()
 
         if(currentPage >= pages.size){
             textBox?.setText("")
@@ -117,13 +117,13 @@ class NewPageActivity : Activity() {
         }
 
         currentPage-= 1
-        resetTitleLabel()
+        resetPageLabel()
 
         textBox?.setText(pages[currentPage])
         nextButton?.visibility = View.VISIBLE
     }
 
-    fun resetTitleLabel(){
-        titleLabel.text = "Page " + (currentPage + 1).toString()
+    fun resetPageLabel(){
+        pageLabel.text = "Page " + (currentPage + 1).toString()
     }
 }
