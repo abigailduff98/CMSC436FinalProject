@@ -27,6 +27,14 @@ class NewPageActivity : Activity() {
 
     }
 
+    fun savePage(v: View) {
+        val intent = Intent(
+                this@NewPageActivity,
+                NewPageActivity::class.java
+        )
+        startActivity(intent)
+    }
+
     // Set an OnClickListener on createButton
     // Called each time the user clicks the Button
     fun nextPage(v: View) {
