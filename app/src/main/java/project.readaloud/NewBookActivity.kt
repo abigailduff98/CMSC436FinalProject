@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.EditText
-import project.readaloud.Objects.Book
 
 class NewBookActivity : Activity(){
     internal lateinit var bookTitle : EditText
@@ -27,7 +26,6 @@ class NewBookActivity : Activity(){
         Log.e("MOOOP", bookTitle!!.text.toString())
         intent.putExtra("BOOK_TITLE", bookTitle.text.toString())
         intent.putExtra("PAGE_NUMBER", "0")
-
         startActivity(intent)
     }
 }
