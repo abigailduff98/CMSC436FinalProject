@@ -81,10 +81,9 @@ class NewPageActivity : Activity() {
     // Called each time the user clicks the Button
     //save to external
     fun nextPage(view: View) {
-        prevButton?.visibility = View.VISIBLE
-
-
         val newPage = textBox?.text.toString()
+
+        prevButton?.visibility = View.VISIBLE
 
         if(currentPage >= pages.size){
             pages.add(currentPage, newPage)
@@ -108,10 +107,13 @@ class NewPageActivity : Activity() {
         }
 
         val newPage = textBox?.text.toString()
-        if(currentPage >= pages.size){
-            pages.add(currentPage, newPage)
-        } else {
-            pages[currentPage] = newPage
+
+        if(newPage != "") {
+            if (currentPage >= pages.size) {
+                pages.add(currentPage, newPage)
+            } else {
+                pages[currentPage] = newPage
+            }
         }
 
         currentPage-= 1
