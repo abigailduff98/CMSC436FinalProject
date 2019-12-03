@@ -9,6 +9,9 @@ class Book {
         this.title = title
         this.pagesInBook = pages
     }
+    constructor() : this("","", ArrayList()){
+
+    }
 
 
     fun addPage(pageToAdd:Page){
