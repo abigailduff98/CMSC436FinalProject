@@ -17,9 +17,10 @@ class NewBookActivity : Activity(){
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.new_book)
         //mAuth = FirebaseAuth.getInstance()
         bookTitle = findViewById(R.id.bookTitleEditText)
-        setContentView(R.layout.new_book)
+
         //newBook = Book(bookTitle.toString(), ArrayList<Page>())
     }
 

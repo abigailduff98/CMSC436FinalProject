@@ -20,7 +20,7 @@ private const val MYTAG = "Book create"
 class NewPageActivity : Activity() {
     var text : EditText? = null
     lateinit var newPage : Page
-    var title  = intent.getStringExtra("title")
+    lateinit var title : String
     lateinit var pages : ArrayList<Page>
     lateinit var myBook : Book
     private var mAuth: FirebaseAuth? = null
@@ -33,6 +33,8 @@ class NewPageActivity : Activity() {
 
         text = findViewById(R.id.storyText)
         newPage = Page(text.toString())
+        title = intent.getStringExtra("title").toString()
+        pages = ArrayList<Page>()
         pages.add(newPage)
         myBook = Book(title, pages)
     }
