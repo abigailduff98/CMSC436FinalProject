@@ -11,10 +11,14 @@
 
     <TextView
         android:id="@+id/titleLabel"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="BOOK TEXT SHOULD BE HERE"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+
+        android:textSize="30sp"
+        android:gravity="center"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#756b44" />
 
@@ -25,32 +29,28 @@
         android:layout_below="@+id/titleLabel"
         android:layout_alignParentStart="true"
         android:background="#FFFFFF"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+
+        android:textSize="30sp"
         android:ems="10"
         android:gravity="top|start"
         android:hint="@string/enter_text_for_this_page"
         android:inputType="textMultiLine"
-        android:lines="4"
+        android:lines="8"
         android:maxLength="200"
         android:textColor="#756b44">
-
         <requestFocus />
     </EditText>
 
-    <view
-        android:id="@+id/canvasView"
-        class="project.readaloud.PaintCanvasView"
-        android:layout_width="match_parent"
-        android:layout_height="284dp"
-        android:layout_below="@+id/divider"
-        android:layout_marginTop="-2dp"
-        android:background="#FFFFFF" />
 
     <Button
         android:id="@+id/prevPageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/canvasView"
-        android:layout_alignStart="@+id/canvasView"
+        android:layout_below="@+id/textField"
+        android:layout_alignStart="@+id/textField"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/rounded_edge"
@@ -60,23 +60,24 @@
 
     <Button
         android:id="@+id/saveButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/canvasView"
-        android:layout_alignEnd="@+id/canvasView"
-        android:layout_marginTop="10dp"
-        android:layout_marginHorizontal="170dp"
+        android:layout_below="@+id/nextPageButton"
+        android:layout_alignStart="@+id/textField"
+
+        android:layout_alignEnd="@+id/textField"
+        android:layout_marginTop="50dp"
         android:background="@drawable/rounded_edge"
         android:onClick="save"
-        android:text="Save"
+        android:text="Save Book!"
         android:textColor="@color/white" />
 
     <Button
         android:id="@+id/nextPageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/canvasView"
-        android:layout_alignEnd="@+id/canvasView"
+        android:layout_below="@+id/textField"
+        android:layout_alignEnd="@+id/textField"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:background="@drawable/rounded_edge"
