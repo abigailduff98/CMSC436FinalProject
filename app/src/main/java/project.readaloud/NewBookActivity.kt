@@ -26,7 +26,7 @@ class NewBookActivity : Activity(){
         )
         Log.e("MOOOP", bookTitle!!.text.toString())
         intent.putExtra("BOOK_TITLE", bookTitle.text.toString())
-        intent.putExtra("PAGE_NUMBER", Integer.valueOf(0))
+        intent.putExtra("PAGE_NUMBER", "0")
 
         startActivity(intent)
     }

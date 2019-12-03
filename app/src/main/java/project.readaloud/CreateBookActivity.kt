@@ -44,12 +44,9 @@ class CreateBookActivity : Activity() {
         mAuth = FirebaseAuth.getInstance()
         titleTV = findViewById(R.id.bookTitleEditText)
 
-        saveButton.setOnClickListener { saveBookToFireBaseDataBase() }
+        saveButtonView.setOnClickListener { createBook() }
 
     }
-
-
-
 
 
     private fun createBook() {
@@ -62,7 +59,7 @@ class CreateBookActivity : Activity() {
             Toast.makeText(applicationContext, "Please enter the title...", Toast.LENGTH_LONG).show()
             return
         }
-
+        saveBookToFireBaseDataBase()
         //If all the slots are filled out. We authenticate
     }
 
