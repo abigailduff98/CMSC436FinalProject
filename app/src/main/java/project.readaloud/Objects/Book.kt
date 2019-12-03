@@ -9,17 +9,5 @@ class Book {
         this.title = title
         this.pagesInBook = pages
     }
-//    constructor() : this("","", ArrayList()){
-//
-//    }
-//
-//
-//    fun addPage(pageToAdd:Page){
-//        pagesInBook?.add(pageToAdd)
-//    }
-//
-//    fun deletePage(pageToDel:Page){
-//        pagesInBook?.remove(pageToDel)
-//    }
-
+    constructor() : this("", ArrayList())
 }
