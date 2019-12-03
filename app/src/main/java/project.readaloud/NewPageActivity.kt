@@ -3,28 +3,38 @@ package project.readaloud
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
+import project.readaloud.Objects.Book
+import project.readaloud.Objects.Page
 import project.readaloud.R.layout.new_page
+import java.util.ArrayList
+
+private const val MYTAG = "Book create"
 
 class NewPageActivity : Activity() {
     var text : EditText? = null
-    private lateinit var saveButton : Button
-    private lateinit var nextButton : Button
+    lateinit var newPage : Page
+    var title  = intent.getStringExtra("title")
+    lateinit var pages : ArrayList<Page>
+    lateinit var myBook : Book
+    private var mAuth: FirebaseAuth? = null
 
 
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        text = findViewById(R.id.storyText)
-        saveButton = findViewById(R.id.saveButton)
-        nextButton = findViewById(R.id.nextPageButton)
-
-        saveButton.setOnClickListener(){
-
-        }
         setContentView(new_page)
+
+        text = findViewById(R.id.storyText)
+        newPage = Page(text.toString())
+        pages.add(newPage)
+        myBook = Book(title, pages)
     }
 
     //save previous content and be able to show it
@@ -37,12 +47,21 @@ class NewPageActivity : Activity() {
     //save entire book to database
 
 
+    fun save(view: View) {
+        Log.i(MYTAG, "Let's Save The user to Firebase")
+        val myRef = FirebaseDatabase.getInstance().getReference("/books")
 
 
-    fun save() {
+        //add the user to the Databse
+        val x = myRef.setValue(myBook)
+
+        x.addOnSuccessListener {
+            Log.i(MYTAG, "We saved the Book")
+        }
+
         val intent = Intent(
                 this@NewPageActivity,
-                CreateBookActivity::class.java
+                ListViewActivity::class.java
         )
         startActivity(intent)
     }
@@ -50,7 +69,7 @@ class NewPageActivity : Activity() {
     // Set an OnClickListener on createButton
     // Called each time the user clicks the Button
     //save to external
-    fun nextPage() {
+    fun nextPage(view: View) {
         val intent = Intent(
                 this@NewPageActivity,
                 NewPageActivity::class.java
