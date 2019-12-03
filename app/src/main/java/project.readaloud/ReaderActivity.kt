@@ -3,10 +3,12 @@ package project.readaloud
 import android.app.Activity
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
+import android.speech.tts.UtteranceProgressListener
 import android.content.Intent
 import android.widget.Button
 import android.widget.TextView
 import android.speech.tts.TextToSpeech.OnInitListener
+import android.widget.ImageView
 import android.widget.Toast
 import java.util.Locale
 
@@ -26,17 +28,20 @@ class ReaderActivity : Activity(), OnInitListener {
         setContentView(R.layout.reader_page)
 
         //get a reference to the button element listed in the XML layout
-        val speakButton = findViewById(R.id.playButton) as Button
+        val speakButton = findViewById<Button>(R.id.playButton)
         //listen for clicks
         speakButton.setOnClickListener {
+
+
+
             //get the text entered
-            val enteredText = findViewById(R.id.storyText) as TextView
+            val enteredText = findViewById<TextView>(R.id.storyText)
             val words = enteredText.text.toString()
             speakWords(words)
         }
 
         //get a reference to the button element listed in the XML layout
-        val stopButton = findViewById(R.id.stopButton) as Button
+        val stopButton = findViewById<Button>(R.id.stopButton)
         //listen for clicks
         stopButton.setOnClickListener {
             if (myTTS != null) {
@@ -52,8 +57,10 @@ class ReaderActivity : Activity(), OnInitListener {
 
     private fun speakWords(speech: String) {
 
+        val params = Bundle()
+        params.putString(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, "")
         //speak straight away
-        myTTS!!.speak(speech, TextToSpeech.QUEUE_FLUSH, null)
+        myTTS!!.speak(speech, TextToSpeech.QUEUE_FLUSH, params, "UniqueID")
     }
 
     //act on result of TTS data check
@@ -79,9 +86,24 @@ class ReaderActivity : Activity(), OnInitListener {
         if (initStatus == TextToSpeech.SUCCESS) {
             if (myTTS!!.isLanguageAvailable(Locale.US) === TextToSpeech.LANG_AVAILABLE)
                 myTTS!!.setLanguage(Locale.US)
+                myTTS!!.setOnUtteranceProgressListener(object : UtteranceProgressListener() {
+
+                    override fun onDone(utteranceId: String?) {
+                       findViewById<ImageView>(R.id.imageView1).setImageResource(R.drawable.mrwhite)
+                    }
+
+                    override fun onError(utteranceId: String?) {
+                        //do whatever you want if TTS makes an error.
+                    }
+
+                    override fun onStart(utteranceId: String?) {
+                        findViewById<ImageView>(R.id.imageView1).setImageResource(R.drawable.mrwhitemouth)
+                    }
+                })
         } else if (initStatus == TextToSpeech.ERROR) {
             Toast.makeText(this, "Sorry! Text To Speech failed...", Toast.LENGTH_LONG).show()
         }
     }
 
 }
+
