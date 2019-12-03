@@ -50,9 +50,7 @@ class NewBookActivity : Activity(){
                 this@NewBookActivity,
                 NewPageActivity::class.java
         )
-        Log.e("MOOOP", bookTitle!!.text.toString())
-        intent.putExtra("BOOK_TITLE", bookTitle.text.toString())
-        intent.putExtra("PAGE_NUMBER", "0")
+        intent.putExtra("BOOK_ID", bookId.toString())
         startActivity(intent)
     }
 }
