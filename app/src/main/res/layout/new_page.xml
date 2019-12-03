@@ -10,12 +10,11 @@
 
 
     <TextView
-        android:id="@+id/TitleLabel"
+        android:id="@+id/titleLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="@string/page_text"
-
+        android:text="BOOK TEXT SHOULD BE HERE"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#756b44" />
 
@@ -23,7 +22,7 @@
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/TitleLabel"
+        android:layout_below="@+id/titleLabel"
         android:layout_alignParentStart="true"
         android:background="#FFFFFF"
         android:ems="10"

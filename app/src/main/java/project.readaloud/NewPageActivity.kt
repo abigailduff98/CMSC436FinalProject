@@ -5,8 +5,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.ImageView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
@@ -18,25 +20,34 @@ import java.util.ArrayList
 private const val MYTAG = "Book create"
 
 class NewPageActivity : Activity() {
+    lateinit var titleLabel : TextView
     var text : EditText? = null
     lateinit var newPage : Page
-    lateinit var title : String
+
     lateinit var pages : ArrayList<Page>
     lateinit var myBook : Book
     private var mAuth: FirebaseAuth? = null
-
-
+    lateinit var bookTitle : String
+    private var pageNumber : Int? = null
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(new_page)
 
+        titleLabel  = findViewById(R.id.titleLabel)
+
+        bookTitle = intent.getStringExtra("BOOK_TITLE")
+        pageNumber = intent.getStringExtra("PAGE_NUMBER").toInt()
+        Log.e("ldsa", titleLabel.toString())
+        titleLabel.text = bookTitle + ": Page " + pageNumber.toString()
+
         text = findViewById(R.id.storyText)
         newPage = Page(text.toString())
-        title = intent.getStringExtra("title").toString()
-        pages = ArrayList<Page>()
+
+        pages = ArrayList()
+
         pages.add(newPage)
-        myBook = Book(title, pages)
+        myBook = Book(bookTitle, pages)
     }
 
     //save previous content and be able to show it
@@ -76,6 +87,8 @@ class NewPageActivity : Activity() {
                 this@NewPageActivity,
                 NewPageActivity::class.java
         )
+        intent.putExtra("BOOK_TITLE", bookTitle)
+        intent.putExtra("PAGE_NUMBER", pageNumber?.plus(1).toString())
         startActivity(intent)
 
     }
