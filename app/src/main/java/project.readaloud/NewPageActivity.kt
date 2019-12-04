@@ -135,4 +135,13 @@ class NewPageActivity : Activity() {
     fun resetPageLabel(){
         pageLabel.text = "Page " + (currentPage + 1).toString()
     }
+
+    fun deleteButton(view: View) {
+        if(currentPage == pages.size){
+            textBox?.setText("")
+        } else {
+            pages.removeAt(currentPage)
+            textBox?.setText(pages[currentPage])
+        }
+    }
 }
