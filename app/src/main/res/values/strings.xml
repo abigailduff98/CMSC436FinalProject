@@ -12,6 +12,7 @@
     <string name="next">Next</string>
     <string name="enter_text_for_this_page">Enter text for this page</string>
     <string name="page_text">Page text</string>
+    <string name="delete">Delete</string>
 
     <string-array name="colors">
         <item>red</item>

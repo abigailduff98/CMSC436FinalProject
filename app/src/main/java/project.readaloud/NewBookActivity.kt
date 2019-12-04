@@ -11,6 +11,9 @@ import android.widget.Toast
 import com.google.firebase.database.FirebaseDatabase
 import project.readaloud.Objects.Book
 import java.util.ArrayList
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+
+
 
 private const val MYTAG = "Book create"
 
@@ -42,6 +45,8 @@ class NewBookActivity : Activity(){
                 this@NewBookActivity,
                 NewPageActivity::class.java
         )
+        intent.flags = Intent.FLAG_ACTIVITY_NO_HISTORY // Adds the FLAG_ACTIVITY_NO_HISTORY flag
+
         intent.putExtra("BOOK_TITLE", title)
 
         startActivity(intent)
