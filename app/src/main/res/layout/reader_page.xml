@@ -85,7 +85,7 @@
         android:layout_width="264dp"
         android:layout_height="132dp"
         android:layout_alignTop="@id/imageView2"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="80dp"
         android:textColor="#756b44"
 
         android:text="Hey there! I'm just testing out how much text we can fit here. We might want to set a character limit per page!"
