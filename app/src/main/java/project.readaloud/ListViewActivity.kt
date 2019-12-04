@@ -12,6 +12,7 @@ import project.readaloud.Objects.Book
 
 lateinit var bookList: MutableList<Book>
 lateinit var ref : DatabaseReference
+lateinit var bookID: String
 
 class ListViewActivity : ListActivity() {
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,6 +58,7 @@ class ListViewActivity : ListActivity() {
                     this@ListViewActivity,
                     ReaderActivity::class.java
             )
+            intent.putExtra("BOOK_TITLE", view.findViewById<TextView>(R.id.text).text)
             startActivity(goToReaderIntent)
 
             val textView = view.findViewById<TextView>(R.id.text)

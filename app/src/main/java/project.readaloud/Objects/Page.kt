@@ -11,10 +11,13 @@ class Page {
     constructor(text: String, pageNum: Int) {
         this.text = text
         this.pageNum = pageNum
-
     }
    fun setText(newText: String){
         this.text = newText
+    }
+
+    fun getText(): String{
+        return this.text
     }
 
 

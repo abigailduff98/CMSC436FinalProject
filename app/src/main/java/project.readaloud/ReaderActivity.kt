@@ -10,10 +10,21 @@ import android.widget.TextView
 import android.speech.tts.TextToSpeech.OnInitListener
 import android.widget.ImageView
 import android.widget.Toast
+import com.google.firebase.database.*
+import project.readaloud.Objects.Book
+import project.readaloud.Objects.Page
 import java.util.Locale
+import android.content.ContentValues.TAG
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.ValueEventListener
 
 
 
+
+lateinit var pageList: ArrayList<String>
+//lateinit var ref : DatabaseReference
+lateinit var bookTitle: String
 
 class ReaderActivity : Activity(), OnInitListener {
 
@@ -26,6 +37,35 @@ class ReaderActivity : Activity(), OnInitListener {
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.reader_page)
+
+        pageList = arrayListOf()
+        bookTitle = intent.getStringExtra("BOOK_TITLE")!!
+        val ref = FirebaseDatabase.getInstance().getReference("books")
+
+
+        ref.addValueEventListener(object : ValueEventListener {
+            override fun onCancelled(p0: DatabaseError) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun onDataChange(p0: DataSnapshot) {
+                //check if a book exists
+                if(p0!!.exists()){
+                    bookList.clear()
+                    for(b in p0.children){
+                        val book = b.getValue(Book::class.java)
+                        if(book != null && book.title.equals(bookTitle))
+                        pageList = book.pagesInBook!!
+                        break
+                    }
+
+                    val adapter = PageAdapter(applicationContext, R.layout.reader_page, pageList)
+
+
+                }
+            }
+
+        });
 
         val speakButton = findViewById<Button>(R.id.playButton)
         speakButton.setOnClickListener {
