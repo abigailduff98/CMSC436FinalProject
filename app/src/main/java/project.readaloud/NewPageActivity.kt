@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.provider.ContactsContract
+import android.util.Log
 import android.view.View
 
 import android.widget.EditText
@@ -152,9 +153,20 @@ class NewPageActivity : Activity() {
     }
 
     fun deleteButton(view: View) {
-        if(currentPage == pages.size){
+        if(currentPage == pages.size - 1 && pages.size == 1){
             textBox?.setText("")
-        } else {
+        } else if (currentPage > pages.size - 1){
+            Log.e("MOOOP", pages.toString())
+            currentPage--
+            textBox?.setText(pages[currentPage])
+            resetPageLabel()
+        } else if (currentPage == pages.size - 1){
+            pages.removeAt(currentPage)
+            currentPage--
+            textBox?.setText(pages[currentPage])
+            resetPageLabel()
+        }
+        else {
             pages.removeAt(currentPage)
             textBox?.setText(pages[currentPage])
         }
