@@ -44,19 +44,8 @@ class NewPageActivity : Activity() {
         nextButton = findViewById(R.id.nextPageButton)
 
         prevButton?.visibility = View.INVISIBLE
-        nextButton?.visibility = View.INVISIBLE
     }
 
-    override fun onUserInteraction() {
-        super.onUserInteraction()
-
-        if (textBox?.text.toString().equals("")){
-            nextButton?.visibility = View.INVISIBLE
-        } else {
-            nextButton?.visibility = View.VISIBLE
-        }
-
-    }
     //save previous content and be able to show it
     //first page shouldn't have prev
     //create page
@@ -101,7 +90,10 @@ class NewPageActivity : Activity() {
     fun nextPage(view: View) {
         val newPage = textBox?.text.toString()
 
-        prevButton?.visibility = View.VISIBLE
+        if(currentPage >= pages.size && newPage.isEmpty()){
+            textBox?.error = "Please enter some text for this page"
+            return
+        }
 
         if(currentPage >= pages.size){
             pages.add(currentPage, newPage)
@@ -111,10 +103,10 @@ class NewPageActivity : Activity() {
 
         currentPage += 1
         resetPageLabel()
+        prevButton?.visibility = View.VISIBLE
 
         if(currentPage >= pages.size){
             textBox?.setText("")
-            nextButton?.visibility = View.INVISIBLE
         } else {
             textBox?.setText(pages[currentPage])
         }
@@ -138,7 +130,6 @@ class NewPageActivity : Activity() {
         resetPageLabel()
 
         textBox?.setText(pages[currentPage])
-        nextButton?.visibility = View.VISIBLE
     }
 
     fun resetPageLabel(){
