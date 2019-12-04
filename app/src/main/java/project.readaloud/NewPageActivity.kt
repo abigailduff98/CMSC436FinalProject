@@ -3,12 +3,13 @@ package project.readaloud
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.provider.ContactsContract
 import android.view.View
 
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import project.readaloud.Objects.Book
 import project.readaloud.R.layout.new_page
 import kotlin.collections.ArrayList
@@ -19,6 +20,8 @@ class NewPageActivity : Activity() {
     lateinit var titleLabel : TextView
     var textBox : EditText? = null
     var bookTitle : String? = null
+    var bookId : String? = null
+    var ref : DatabaseReference? = null
 
     private var currentPage : Int = 0
     lateinit var pages : ArrayList<String>
@@ -29,16 +32,36 @@ class NewPageActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(new_page)
 
-        pages = ArrayList()
+        ref = FirebaseDatabase.getInstance().getReference("books")
         pageLabel  = findViewById(R.id.pageLabel)
         titleLabel = findViewById(R.id.titleLabel)
 
         bookTitle = intent.getStringExtra("BOOK_TITLE")
+        bookId = intent.getStringExtra("BOOK_ID")
+        pages = ArrayList()
+        textBox = findViewById(R.id.textField)
+
+        if(bookId == null){
+            bookId = ref?.push()!!.key
+        } else {
+            ref?.child(bookId!!)?.child("pagesInBook")?.addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    // getting authors only for the Current User
+                    for (snapshot in dataSnapshot.children) {
+                        pages.add(snapshot.value.toString())
+                    }
+                    textBox?.setText(pages[0])
+                }
+
+                override fun onCancelled(databaseError: DatabaseError) {
+
+                }
+            })
+        }
 
         titleLabel.text = bookTitle
         resetPageLabel()
 
-        textBox = findViewById(R.id.textField)
 
         prevButton = findViewById(R.id.prevPageButton)
         nextButton = findViewById(R.id.nextPageButton)
@@ -68,13 +91,9 @@ class NewPageActivity : Activity() {
             }
         }
 
-        val ref = FirebaseDatabase.getInstance().getReference("books")
-        //generate unique key inside the reference
-        val bookId = ref.push().key
-
         val myBook = Book(bookId.toString(), bookTitle!!, pages)
 
-        ref.child(bookId.toString()).setValue(myBook).addOnCompleteListener{
+        ref?.child(bookId.toString())?.setValue(myBook)?.addOnCompleteListener{
             Toast.makeText(applicationContext,"Book saved successfully", Toast.LENGTH_LONG).show()
         }
         val intent = Intent(

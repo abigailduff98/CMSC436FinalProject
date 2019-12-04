@@ -100,17 +100,30 @@ class ListViewActivity : ListActivity() {
 
         val book = adapter.getItem(info.position) as Book
 
-        ref.child(book.id!!).setValue(null)
 
-        adapter.remove(adapter.getItem(info.position))
 
 
         return when (item.itemId) {
             R.id.delete_menu -> {
+                ref.child(book.id!!).setValue(null)
+
+                adapter.remove(adapter.getItem(info.position))
                 Toast.makeText(
                         this@ListViewActivity,
                         "delete", Toast.LENGTH_SHORT
                 ).show()
+                true
+            }
+            R.id.edit_menu -> {
+                val intent = Intent(
+                        this@ListViewActivity,
+                        NewPageActivity::class.java
+                )
+                intent.flags = Intent.FLAG_ACTIVITY_NO_HISTORY // Adds the FLAG_ACTIVITY_NO_HISTORY flag
+
+                intent.putExtra("BOOK_TITLE", book.title)
+                intent.putExtra("BOOK_ID", book.id)
+                startActivity(intent)
                 true
             }
             else -> false
