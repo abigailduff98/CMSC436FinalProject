@@ -17,8 +17,7 @@ import android.view.ContextMenu
 import android.view.ContextMenu.ContextMenuInfo
 import android.view.MenuItem
 import android.widget.AdapterView.AdapterContextMenuInfo
-
-
+import android.widget.ListView
 
 
 private const val TAG = "LVA"
@@ -67,13 +66,14 @@ class ListViewActivity : ListActivity() {
         // Enable filtering when the user types in the virtual keyboard
         listView.isTextFilterEnabled = true
 
-        // Set an setOnItemClickListener on the ListView
+//         Set an setOnItemClickListener on the ListView
         listView.onItemClickListener = OnItemClickListener { parent, view, position, id ->
             val goToReaderIntent = Intent(
                     this@ListViewActivity,
                     ReaderActivity::class.java
             )
-            intent.putExtra("BOOK_TITLE", view.findViewById<TextView>(R.id.text).text)
+            val book = bookList[position]
+            goToReaderIntent.putExtra("BOOK_ID", book.id)
             startActivity(goToReaderIntent)
 
             val textView = view.findViewById<TextView>(R.id.text)
@@ -109,7 +109,6 @@ class ListViewActivity : ListActivity() {
         return when (item.itemId) {
             R.id.delete_menu -> {
                 ref.child(book.id!!).setValue(null)
-
                 adapter.remove(adapter.getItem(info.position))
                 Toast.makeText(
                         this@ListViewActivity,

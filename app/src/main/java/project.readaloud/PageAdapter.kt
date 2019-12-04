@@ -6,8 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
-import project.readaloud.Objects.Book
-import project.readaloud.Objects.Page
 
 class PageAdapter(val mCtx: Context, val layoutResID: Int, val pageList: List<String>)
     : ArrayAdapter<String>(mCtx, layoutResID, pageList){

@@ -60,7 +60,7 @@
         android:layout_alignLeft="@id/playButton"
         android:layout_marginTop="7dp"
         android:layout_marginLeft="5dp"
-
+        android:onClick="prePage"
         android:background="@drawable/rounded_edge"
         android:text="Prev"
         android:textAppearance="@android:style/TextAppearance.Material.Display1"
@@ -74,7 +74,7 @@
         android:layout_alignLeft="@id/stopButton"
         android:layout_alignTop="@id/prevPageButton"
         android:layout_marginLeft="5dp"
-
+        android:onClick="nexPage"
         android:background="@drawable/rounded_edge"
         android:text="Next"
         android:textAppearance="@android:style/TextAppearance.Material.Display1"

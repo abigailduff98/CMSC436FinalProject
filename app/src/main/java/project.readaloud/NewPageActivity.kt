@@ -96,11 +96,7 @@ class NewPageActivity : Activity() {
         ref?.child(bookId.toString())?.setValue(myBook)?.addOnCompleteListener{
             Toast.makeText(applicationContext,"Book saved successfully", Toast.LENGTH_LONG).show()
         }
-        val intent = Intent(
-                this@NewPageActivity,
-                ListViewActivity::class.java
-        )
-        startActivity(intent)
+        finish()
     }
 
     // Set an OnClickListener on createButton

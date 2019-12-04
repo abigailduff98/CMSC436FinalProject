@@ -8,13 +8,13 @@ import android.content.Intent
 import android.widget.Button
 import android.widget.TextView
 import android.speech.tts.TextToSpeech.OnInitListener
+import android.util.Log
+import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
 import com.google.firebase.database.*
 import project.readaloud.Objects.Book
-import project.readaloud.Objects.Page
 import java.util.Locale
-import android.content.ContentValues.TAG
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.ValueEventListener
@@ -24,7 +24,7 @@ import com.google.firebase.database.ValueEventListener
 
 lateinit var pageList: ArrayList<String>
 //lateinit var ref : DatabaseReference
-lateinit var bookTitle: String
+lateinit var bookId: String
 
 class ReaderActivity : Activity(), OnInitListener {
 
@@ -32,47 +32,40 @@ class ReaderActivity : Activity(), OnInitListener {
     private var myTTS: TextToSpeech? = null
     //status check code
     private val MY_DATA_CHECK_CODE = 0
-
+    private var currIndex = 0
+    var enteredText : TextView? = null
+    var lastPageRead = false
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.reader_page)
+        enteredText = findViewById<TextView>(R.id.storyText)
+        val speakButton = findViewById<Button>(R.id.playButton)
 
-        pageList = arrayListOf()
-        bookTitle = intent.getStringExtra("BOOK_TITLE")!!
+        pageList = ArrayList()
+        bookId = intent.getStringExtra("BOOK_ID")!!
+
         val ref = FirebaseDatabase.getInstance().getReference("books")
 
-
-        ref.addValueEventListener(object : ValueEventListener {
-            override fun onCancelled(p0: DatabaseError) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-            }
-
-            override fun onDataChange(p0: DataSnapshot) {
-                //check if a book exists
-                if(p0!!.exists()){
-                    bookList.clear()
-                    for(b in p0.children){
-                        val book = b.getValue(Book::class.java)
-                        if(book != null && book.title.equals(bookTitle))
-                        pageList = book.pagesInBook!!
-                        break
-                    }
-
-                    val adapter = PageAdapter(applicationContext, R.layout.reader_page, pageList)
-
-
+        ref.child(bookId).child("pagesInBook").addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                // getting authors only for the Current User
+                for (snapshot in dataSnapshot.children) {
+                    pageList.add(snapshot.value.toString())
                 }
+                enteredText?.text = pageList[currIndex]
+
             }
+            override fun onCancelled(databaseError: DatabaseError) {
 
-        });
+            }
+        })
 
-        val speakButton = findViewById<Button>(R.id.playButton)
         speakButton.setOnClickListener {
 
             //get the text entered
-            val enteredText = findViewById<TextView>(R.id.storyText)
-            val words = enteredText.text.toString()
+
+            val words = enteredText?.text.toString()
             speakWords(words)
         }
 
@@ -117,6 +110,14 @@ class ReaderActivity : Activity(), OnInitListener {
 
                     override fun onDone(utteranceId: String?) {
                        findViewById<ImageView>(R.id.imageView1).setImageResource(R.drawable.mrwhite)
+                        next()
+                        val words = enteredText?.text.toString()
+                        if(currIndex < pageList.size && !lastPageRead) {
+                            speakWords(words)
+                            if(currIndex == pageList.size - 1){
+                                lastPageRead = true
+                            }
+                        }
                     }
 
                     override fun onError(utteranceId: String?) {
@@ -129,6 +130,23 @@ class ReaderActivity : Activity(), OnInitListener {
                 })
         } else if (initStatus == TextToSpeech.ERROR) {
             Toast.makeText(this, "Sorry! Text To Speech failed...", Toast.LENGTH_LONG).show()
+        }
+    }
+    fun next() {
+        if(currIndex < pageList.size - 1) {
+            currIndex++
+            enteredText?.text = pageList[currIndex]
+        }
+    }
+    fun nexPage(view: View) {
+        next()
+    }
+
+    fun prePage(view: View) {
+        if(currIndex > 0) {
+            lastPageRead = false
+            currIndex--
+            enteredText?.text = pageList[currIndex]
         }
     }
 
