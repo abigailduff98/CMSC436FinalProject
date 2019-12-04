@@ -15,12 +15,16 @@ import android.view.View
 import android.view.ContextMenu
 import android.view.ContextMenu.ContextMenuInfo
 import android.view.MenuItem
+import android.widget.AdapterView.AdapterContextMenuInfo
+
+
 
 
 private const val TAG = "LVA"
 
 lateinit var bookList: MutableList<Book>
 lateinit var ref : DatabaseReference
+lateinit var adapter: BookAdapter
 
 class ListViewActivity : ListActivity() {
 
@@ -42,7 +46,7 @@ class ListViewActivity : ListActivity() {
                         bookList.add(book!!)
                     }
 
-                    val adapter = BookAdapter(applicationContext, R.layout.list_item, bookList)
+                    adapter = BookAdapter(applicationContext, R.layout.list_item, bookList)
                     listAdapter = adapter
 
                 }
@@ -91,6 +95,16 @@ class ListViewActivity : ListActivity() {
 
     // Process clicks on Context Menu Items
     override fun onContextItemSelected(item: MenuItem): Boolean {
+
+        val info = item.menuInfo as AdapterContextMenuInfo
+
+        val book = adapter.getItem(info.position) as Book
+
+        ref.child(book.id!!).setValue(null)
+
+        adapter.remove(adapter.getItem(info.position))
+
+
         return when (item.itemId) {
             R.id.delete_menu -> {
                 Toast.makeText(
