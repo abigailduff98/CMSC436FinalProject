@@ -102,6 +102,6 @@
         android:layout_below="@id/storyText"
         android:layout_marginTop="5dp"
         android:contentDescription="story image"
-        android:src="@drawable/house" />
+        android:src="@drawable/house2" />
 
 </RelativeLayout>
