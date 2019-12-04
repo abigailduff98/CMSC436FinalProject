@@ -2,6 +2,7 @@ package project.readaloud
 
 import android.app.ListActivity
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.widget.AdapterView.OnItemClickListener
 import android.widget.Button
@@ -61,7 +62,7 @@ class ListViewActivity : ListActivity() {
                 resources.getStringArray(R.array.colors)
         )*/
 
-        listView.setBackgroundColor(resources.getColor(R.color.divider, null))
+        listView.setBackgroundColor(Color.parseColor("#ffe08c"))
         // Enable filtering when the user types in the virtual keyboard
         listView.isTextFilterEnabled = true
 
